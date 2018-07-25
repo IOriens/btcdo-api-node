@@ -1,6 +1,6 @@
 var commonMethod = require('./src/utils/commonMethod.js');
 var apiMethod = require('./src/utils/apiMethod.js');
-var Decimal = require('Decimal.js')
+var Decimal = require('decimal.js')
 
 
 
@@ -13,6 +13,6 @@ async function cancelAll() {
 
 
 
-(async function() {
+(async function () {
   cancelAll()
 })()

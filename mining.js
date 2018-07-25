@@ -7,8 +7,8 @@ try {
         let currentPrice
         let myCurrencyAvailable = new Decimal(0)
         let myCurrencyFrozen = new Decimal(0)
-        let currency = 'ICC'
-        let symbol = 'ICC_ETH'
+        let currency = 'KEY'
+        let symbol = 'KEY_ETH'
         let lastSalePrice = 0, lastSaleAmount = 0
         let lastBuyPrice = 0, lastBuyAmount = 0
 
@@ -27,7 +27,7 @@ try {
         })
 
 
-        let getDepth = () => apiMethod.getSpecifiedTradeDepth('ICC_ETH',).then(res => {
+        let getDepth = () => apiMethod.getSpecifiedTradeDepth('KEY_ETH', ).then(res => {
             typeof res === 'string' && (res = JSON.parse(res))
 
             let lastBuy = res.buyOrders.sort((a, b) => b.price - a.price).shift()

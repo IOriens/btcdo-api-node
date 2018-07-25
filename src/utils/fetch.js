@@ -21,16 +21,16 @@ const {
 
 
 module.exports = function ({
-                               host = baseHost,
-                               port = basePort,
-                               query = baseQuery,
-                               pathname = basePathname,
-                           }, {
-                               method = baseMethod,
-                               headers = {},
-                               body = '',
-                               sendTimeout = timeout
-                           }) {
+    host = baseHost,
+    port = basePort,
+    query = baseQuery,
+    pathname = basePathname,
+}, {
+    method = baseMethod,
+    headers = {},
+    body = '',
+    sendTimeout = timeout
+}) {
 
     // 获取时间
     var apiTime = new Date().getTime()

@@ -2,11 +2,11 @@
   常用方法
 */
 var apiMethod = require('./apiMethod.js')
-var Decimal = require('Decimal.js')
+var Decimal = require('decimal.js')
 
 // 等待n毫秒，配合await使用
 function sleep(time) {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     setTimeout(resolve, time)
   })
 }

@@ -1,15 +1,15 @@
 var commonMethod = require('./src/utils/commonMethod.js');
 var apiMethod = require('./src/utils/apiMethod.js');
-var Decimal = require('Decimal.js')
+var Decimal = require('decimal.js')
 
-let targetSymbol = 'ICC_ETH'
-let tagetCurrency = 'ICC'
+let targetSymbol = 'KEY_ETH'
+let tagetCurrency = 'KEY'
 let useCurrent = 'ETH';
 let myStartBDBAssets = '4926.890750483209';
 
 
-(async function() {
-  for (let i = 0; i < 100; i++) {
+(async function () {
+  for (let i = 0; i < 20; i++) {
     try {
       await createOrder(targetSymbol)
       let myCurrentBDBAssets = await getMyBDBAssets()
@@ -28,16 +28,17 @@ let myStartBDBAssets = '4926.890750483209';
 async function createOrder(symbol) {
   let buyAndSalePrice = await commonMethod.getLatelyBuyAndSalePrice(symbol)
 
-
   let targetPrice = commonMethod.getAverage(buyAndSalePrice[0].price, buyAndSalePrice[1].price)
 
   console.log(`${targetSymbol}市场最高买单价格为:${buyAndSalePrice[0].price} 最低卖单价格为:${buyAndSalePrice[1].price} 挂单的目标价格为${targetPrice}`)
 
-  await commonMethod.createSaleOrder(targetPrice, 2000, symbol)
+  const saleRes = await commonMethod.createSaleOrder(targetPrice, 20, symbol)
+  console.log(saleRes)
 
   await commonMethod.sleep(20)
 
-  await commonMethod.createBuyOrder(targetPrice, 2000, symbol)
+  const buyRes = await commonMethod.createBuyOrder(targetPrice, 20, symbol)
+  console.log(buyRes)
 
   await commonMethod.sleep(200)
 

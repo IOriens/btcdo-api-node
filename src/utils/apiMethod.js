@@ -5,8 +5,8 @@ function getAccounts() {
     return fetch({
         pathname: '/v1/user/accounts'
     }, {
-        method: 'GET',
-    })
+            method: 'GET',
+        })
 }
 
 // 获取充值记录 参数 currency为币种，如 'ETH'
@@ -14,8 +14,8 @@ function getDepositRecord(currency) {
     return fetch({
         pathname: `/v1/user/deposits/${currency}`
     }, {
-        method: 'GET'
-    })
+            method: 'GET'
+        })
 }
 
 // 获取所有币种信息
@@ -23,8 +23,8 @@ function getCurrencyInfo() {
     return fetch({
         pathname: '/v1/common/currencies'
     }, {
-        method: 'GET'
-    })
+            method: 'GET'
+        })
 }
 
 // 获取指定币种信息 参数 currency为币种，如 'ETH'
@@ -32,8 +32,8 @@ function getSpecifiedCurrencyInfo(currency) {
     return fetch({
         pathname: `/v1/common/currencies/${currency}`
     }, {
-        method: 'GET'
-    })
+            method: 'GET'
+        })
 }
 
 // 获取错误信息
@@ -41,8 +41,8 @@ function getErrorCode() {
     return fetch({
         pathname: '/v1/common/errorCodes'
     }, {
-        method: 'GET'
-    })
+            method: 'GET'
+        })
 }
 
 // 获取所有交易对
@@ -50,8 +50,8 @@ function getSymbols() {
     return fetch({
         pathname: '/v1/common/symbols'
     }, {
-        method: 'GET'
-    })
+            method: 'GET'
+        })
 }
 
 // 获取指定交易对 参数symbol为交易对 交易币种_计价币种 例：BDB_ETH
@@ -59,8 +59,8 @@ function getSpecifiedSymbol(symbol) {
     return fetch({
         pathname: `/v1/common/symbols/${symbol}`
     }, {
-        method: 'GET'
-    })
+            method: 'GET'
+        })
 }
 
 // 获取系统时间
@@ -68,8 +68,8 @@ function getSystemTime() {
     return fetch({
         pathname: '/v1/common/timestamp'
     }, {
-        method: 'GET'
-    })
+            method: 'GET'
+        })
 }
 
 // 获取指定交易对行情数据 参数 symbol为交易对 交易币种_计价币种 例：BDB_ETH
@@ -82,8 +82,8 @@ function getSpecifiedSymbolTradeInfo(symbol, type) {
     return fetch({
         pathname: `/v1/market/bars/${symbol}/${type}`
     }, {
-        method: 'GET'
-    })
+            method: 'GET'
+        })
 }
 
 // 获取指定交易对深度 参数symbol为交易对 交易币种_计价币种 例：BDB_ETH
@@ -91,8 +91,8 @@ function getSpecifiedTradeDepth(symbol) {
     return fetch({
         pathname: `/v1/market/depth/${symbol}`
     }, {
-        method: 'GET'
-    })
+            method: 'GET'
+        })
 
 }
 
@@ -102,8 +102,8 @@ function getAllSymbolTransactionInfo() {
     return fetch({
         pathname: '/v1/market/prices'
     }, {
-        method: 'GET'
-    })
+            method: 'GET'
+        })
 }
 
 
@@ -112,8 +112,8 @@ function getLatelyTransactionRecord(offsetId = 0, limit = 100, symbol) {
     return fetch({
         pathname: '/v1/trade/orders'
     }, {
-        method: 'GET'
-    })
+            method: 'GET'
+        })
 }
 
 
@@ -125,13 +125,13 @@ function getLatelyTransactionRecord(offsetId = 0, limit = 100, symbol) {
 // symbol	String	YES	交易对
 // targetOrderId	Long	NO	原订单ID（撤销订单必输）
 function createOrder({
-                         amount,
-                         customFeatures = 65536,
-                         orderType,
-                         price,
-                         symbol,
-                         targetOrderId,
-                     }, openWarn = false) {
+    amount,
+    customFeatures = 65536,
+    orderType,
+    price,
+    symbol,
+    targetOrderId,
+}, openWarn = false) {
 
     if (!orderType) {
         openWarn && console.warn('请输入订单类型！可输入的类型有：BUY_LIMIT：限价买单 SELL_LIMIT：限价卖单 CANCEL_BUY_LIMIT：限价买单撤单 CANCEL_SELL_LIMIT：限价卖单撤单')
@@ -150,16 +150,16 @@ function createOrder({
     return fetch({
         pathname: '/v1/trade/orders'
     }, {
-        method: 'POST',
-        body: {
-            amount,
-            customFeatures,
-            orderType,
-            price,
-            symbol,
-            targetOrderId
-        }
-    })
+            method: 'POST',
+            body: {
+                amount,
+                customFeatures,
+                orderType,
+                price,
+                symbol,
+                targetOrderId
+            }
+        })
 }
 
 // 获取订单详情信息 参数orderId为订单编号
@@ -167,8 +167,8 @@ function getOrderInfo(orderId) {
     return fetch({
         pathname: `/v1/trade/orders/${orderId}`
     }, {
-        method: 'GET'
-    })
+            method: 'GET'
+        })
 }
 
 
@@ -177,8 +177,8 @@ function getMatchesOrderInfo(orderId) {
     return fetch({
         pathname: `/v1/trade/orders/${orderId}/matches`
     }, {
-        method: 'GET'
-    })
+            method: 'GET'
+        })
 }
 
 

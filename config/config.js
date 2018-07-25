@@ -3,9 +3,9 @@ var uuidV1 = require('uuid/v1')
 
 
 // api key
-root.apiKey = 'your api key'
+root.apiKey = process.env.BTCDO_APIKEY || 'apiKey'
 // api secret key
-root.secretKey = 'your api secret key'
+root.secretKey = process.env.BTCDO_SECRETKEY || 'api secret key'
 
 
 // 请求方法
